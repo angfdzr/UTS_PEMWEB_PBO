@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/cerpen.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <div class="bg-header">
+      <h1>Halaman Cerita Pendek</h1>
+    </div>
+
+    <div class="tambah-cerita">
+        <form action="/tambah-cerpen" method="post" enctype="multipart/form-data">
+            <label for="judul_cerpen">Judul Cerita Pendek:</label>
+            <input type="text" name="judul_cerpen" id="judul_cerpen" required autocomplete="off">
+
+            <label for="sinopsis">Sinopsis:</label>
+            <textarea type="text" name="sinopsis" id="sinopsis" required autocomplete="off"></textarea>
+
+            <label for="isi_cerpen">Ceritakan:</label>
+            <textarea type="text" name="isi_cerpen" id="isi_cerpen" required autocomplete="off"></textarea>
+
+            <label for="gambar_cerpen">Unggah Gambar:</label>
+            <input type="file" name="gambar_cerpen" id="gambar_cerpen" accept="image/*" required autocomplete="off">
+
+            <button type="submit">Tambahkan</button>
+        </form>
+    </div>
+<hr>
+<h1 class="pemisah" align="middle">
+    Daftar Cerita
+</h1>
+    <div class="kolom-cerpen">
+        <% berita.forEach(item => { %>
+            <div class="berita-item"><a href="/cerpen_lengkap/<%= item.id_cerpen %>">
+                <img src="<%= item.gambar_cerpen %>" alt="Gambar Berita">
+                <h2><%= item.judul_cerpen %></h2>
+                <p><%= item.sinopsis %>
+            </div></a>
+        <% }) %>
+    </div>
+    <footer>
+        <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+      </footer>
+</body>
+</html>

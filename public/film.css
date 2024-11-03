@@ -1,0 +1,269 @@
+*{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+.menu-utama{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-utama ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.menu-utama ul img{
+    position: absolute;
+    left: 20px;
+    margin-left: 25px;
+}
+
+.menu-utama h1.suaka{
+    position: absolute;
+    left: 150px;
+    font-size: 50px;
+}
+
+.menu-utama ul li{
+    padding: 25px;
+}
+
+.menu-utama ul li a{
+    padding: 25px;
+}
+
+.menu-utama ul li a:hover{
+    padding: 25px;
+    color: #ffaf04;
+    transition: 0.2s;
+}
+
+.menu-utama ul li.right{
+    position: absolute;
+    right: 20px;
+}
+
+.menu-utama ul.sub-menu{
+    position: absolute;
+    background-color: #fff;
+    /* width: 220px; */
+    padding: 10px 0px 10px;
+    margin: 0;
+    left: 0;
+    top: 60px;
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-box-shadow: 0 0 20px #555555;
+    box-shadow: 0 0 20px #555555;
+    display: inline;
+    margin-top: 20px;
+    margin-left: 610px;
+}
+
+.menu-utama ul.sub-menu li{
+    display: block;
+    text-align: left;
+}
+
+.menu-utama ul.sub-menu li a{
+    color: #555;
+    /* font-weight: 600; */
+    padding: 7px 10px;
+    font-size: 20px;
+}
+
+.menu-utama ul.sub-menu li a:hover{
+    color: #ffaf04;
+    /* font-weight: 600; */
+    padding: 7px 10px;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.menu-utama ul > li:hover ul{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-utama ul.sub-menu-right {
+    position: absolute; /* Posisi absolut untuk menempatkan di bawah item induk */
+    background-color: #fff; /* Warna latar belakang */
+    padding: 10px 0px 10px;
+    margin: 0;
+    left: 0;
+    top: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Bayangan */
+    border-radius: 3px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-box-shadow: 0 0 20px #555555;
+    box-shadow: 0 0 20px #555555;
+    display: inline;
+    /* margin-top: 0px; */
+    margin-left: 40px;
+  }
+  
+  .menu-utama ul li:hover > ul.sub-menu-right {
+    opacity: 1; /* Tampilkan dropdown saat hover */
+    visibility: visible; /* Tampilkan dropdown */
+  }
+  
+  .menu-utama ul.sub-menu-right li {
+    padding: 15px 10px; /* Ruang dalam setiap item */
+    white-space: nowrap; 
+  }
+  
+  .menu-utama ul.sub-menu-right li a {
+    color: #555; /* Warna link */
+    font-size: 20px; /* Ukuran font */
+  }
+  
+  .menu-utama ul.sub-menu-right li a:hover {
+    color: #ffaf04; /* Warna saat hover */
+  }
+
+  .bg-header{
+    background-image: url(img/cerpen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 75vh; /* Sesuaikan tinggi sesuai kebutuhan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    image-rendering: auto;
+  }
+
+  .bg-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam semi-transparan */
+    z-index: 1;
+}
+
+.bg-header h1{
+    z-index: 2;
+    color: white;
+    position: relative;
+    top: 50px;
+    font-size: 40px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.isi {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.tambah_komentar {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tambah_komentar h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tambah_komentar label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.tambah_komentar input[type="text"],
+.tambah_komentar textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+}
+
+.tambah_komentar button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tambah_komentar button:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f1f1f1;
+    margin-top: 40px;
+}

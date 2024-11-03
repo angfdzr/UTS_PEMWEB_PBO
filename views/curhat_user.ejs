@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/curhat.css" />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="menu-utama">
+      <ul>
+        <img src="img/2-1.png" alt="logo" width="100px" />
+        <h1 class="suaka">SUAKA</h1>
+        <li><a href="/index">Home</a></li>
+        <li>
+          <a href="">Kisah</a>
+          <ul class="sub-menu">
+            <li><a href="/cerpen_user">Cerita Pendek</a></li>
+            <li><a href="/film">Film Pendek</a></li>
+          </ul>
+        </li>
+        <li><a href="/curhat_user">Curhat</a></li>
+        <li class="right">
+          <a href="/profile_user"><%= user.username %></a>
+          <ul class="sub-menu-right">
+            <li><a href="/profile_user">Profil</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="bg-header">
+      <h1>Halaman Curhat</h1>
+    </div>
+
+    <div class="curhat-kolom">
+      <form action="/curhat" method="post">
+        <label for="pencurhat">Nama Lengkap</label>
+        <input type="text" required name="pencurhat" id="pencurhat" autocomplete="off" />
+
+        <label for="subjek">Subjek</label>
+        <select name="subjek" id="subjek">
+          <option type="text" name="subjek" id="subjek">Overthinking</option>
+          <option type="text" name="subjek" id="subjek">Badmood</option>
+          <option type="text" name="subjek" id="subjek">Stres</option>
+          <option type="text" name="subjek" id="subjek">Anxiety</option>
+          <option type="text" name="subjek" id="subjek">Panik</option>
+        </select>
+
+        <label for="pesan_curhat">Ceritakan</label>
+        <textarea type="text" required name="pesan_curhat" id="pesan_curhat"></textarea>
+
+        <button type="submit">Kirim</button>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

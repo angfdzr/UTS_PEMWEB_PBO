@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="menu-utama">
+      <ul>
+        <img src="img/2-1.png" alt="logo" width="100px" />
+        <h1 class="suaka">SUAKA</h1>
+        <li><a href="/index">Home</a></li>
+        <li>
+          <a href="">Kisah</a>
+          <ul class="sub-menu">
+            <li><a href="/cerpen_user">Cerita Pendek</a></li>
+            <li><a href="/film">Film Pendek</a></li>
+          </ul>
+        </li>
+        <li><a href="/curhat_user">Curhat</a></li>
+        <li class="right">
+          <a href="/profile_user"><%= user.username %></a>
+          <ul class="sub-menu-right">
+            <li><a href="/profile_user">Profil</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Inti -->
+    <div class="bg-page">
+      <div class="teks-desk">
+        <h1>Sarana Aduan Kesehatan Mental Mahasiswa</h1>
+        <p>
+          SUAKA merupakan salah satu program kerja dari Departemen Sosial dan
+          Politik yang menjadi wadah utama pagi para mahasiswa yang ingin
+          memperbaiki kesehatan mentalnya.
+        </p>
+        <a href="/tentang"
+          ><input class="btn" type="button" value="Get to Know About us!"
+        /></a>
+        <p class="last-teks">
+          SUAKA! Solusi terbaik menangani kesehatan mental.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

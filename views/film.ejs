@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/film.css" />
+</head>
+<body>
+    <%- include('navbar') %>
+
+    <div class="bg-header">
+        <h1>Halaman Film Pendek</h1>
+    </div>
+
+    <div class="container">
+        <h1>Daftar Film Pendek</h1>
+        <% if (videos.length > 0) { %>
+            <% videos.forEach(video => { %>
+                <div class="isi">
+                    <h2><%= video.judul_film %></h2>
+                    <p><%= video.sinopsis %></p>
+                    <video controls>
+                        <source src="/videos/<%= video.video_film %>" type="video/mp4">
+                    </video>
+                    
+                    <!-- Menampilkan komentar terkait -->
+                    <div class="baca_komentar">
+                        <h2>Komentar</h2>
+                        <% komentar
+                            .filter(komen => komen.video_id === video.id_video)
+                            .forEach(komen => { %>
+                            <hr>
+                            <h4>Dari: <%= komen.nama_komentar %></h4>
+                            <p><%= komen.isi_komentar %></p>
+                        <% }) %>
+                    </div>
+                    
+                    <!-- Form tambah komentar -->
+                    <div class="tambah_komentar">
+                        <h3>Tambah Komentar</h3>
+                        <form action="/tambah_komentar" method="post">
+                            <input type="hidden" name="video_id" value="<%= video.id_video %>"> <!-- Menggunakan video.id_video -->
+                            <label for="nama_komentar">Nama Lengkap</label>
+                            <input type="text" name="nama_komentar" id="nama_komentar" required autocomplete="off">
+                            <label for="isi_komentar">Isi Komentar</label>
+                            <textarea name="isi_komentar" id="isi_komentar" required autocomplete="off"></textarea>
+                            <button type="submit">Kirim</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>              
+        <% } else { %>
+            <p>No videos uploaded yet.</p>
+        <% } %>
+    </div>
+    <footer>
+        <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+      </footer>
+</body>
+</html>

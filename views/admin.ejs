@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="/admin.css">
+  </head>
+  <body>
+    <div class="kolom-semuanya">
+      <h1>Daftar Curhat</h1>
+    <table border="1" cellpadding="10" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Nama Lengkap</th>
+          <th>Subjek</th>
+          <th>Isi Cerita</th>
+          <th>Jawaban</th>
+          <th>Hasil Jawaban</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% curhat.forEach (listCurhat => { %>
+        <tr>
+          <td><%= listCurhat.pencurhat %></td>
+          <td><%= listCurhat.subjek %></td>
+          <td><%= listCurhat.pesan_curhat %></td>
+          <td>
+            <form action="/jawaban" method="POST">
+                <input type="hidden" name="id_curhat" value="<%= listCurhat.id_curhat %>">
+                <label for="jawaban_text"></label>
+                <textarea name="jawaban_text" required></textarea>
+                <button type="submit">Kirim Jawaban</button>
+            </form><br>
+            <form action="/edit/<%= listCurhat.id_curhat %>" method="POST">
+                <textarea name="jawaban_text" required><%= listCurhat.jawaban_text %></textarea>
+                <button type="submit">Edit Jawaban</button>
+            </form>
+          </td>
+          <td><%= listCurhat.jawaban_text ? listCurhat.jawaban_text : 'Belum dijawab' %></td>
+          <td>
+            <form action="/hapus/<%= listCurhat.id_curhat %>" method="POST">
+                <button type="submit">Hapus</button>
+              </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="daftar-cerita">
+      <h1>Daftar Cerita</h1>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Gambar</th>
+            <th>Judul Cerita</th>
+            <th>Sinopsis</th>
+            <th>Isi Cerita</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% berita.forEach(item => { %>
+          <tr>
+            <td><%= item.gambar_cerpen %></td>
+            <td><%= item.judul_cerpen %></td>
+            <td><%= item.sinopsis %></td>
+            <td><div style="white-space: pre-wrap;"><%= item.isi_cerpen %></div></td>
+            <td><form action="/hapus-cerpen/<%= item.id_cerpen %>" method="post">
+              <button type="submit">Hapus</button>
+            </form></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="admin-film">
+      <h1>Unggah Video</h1>
+    <form action="/admin/upload" method="POST" enctype="multipart/form-data">
+        <input type="text" name="judul_film" placeholder="Video Title" required autocomplete="off">
+        <textarea name="sinopsis" placeholder="Video Synopsis" required autocomplete="off"></textarea>
+        <input type="file" name="video" accept="video/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    </div>
+
+    <div class="daftar-cerita">
+      <h1>Edit Unggahan Video</h1>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Judul Film</th>
+            <th>Sinopsis</th>
+            <th>Edit</th>
+            <th>Hapus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% film.forEach(item => { %>
+          <tr>
+            <td><%= item.judul_film %></td>
+            <td><%= item.sinopsis %></td>
+            <td><form action="/admin/update/<%= item.id_film %>" method="post">
+              <label for="judul_film">Judul Film:</label>
+              <input type="text" name="judul_film" id="judul_film" required value="<%= item.judul_film %>" autocomplete="off">
+              <label for="sinopsis">Sinopsis Film:</label>
+              <textarea type="text" name="sinopsis" id="sinopsis" required autocomplete="off"><%= item.sinopsis %></textarea>
+              <input type="file" name="video" id="video" accept="video/*">
+              <button type="submit">Edit</button>
+            </form></td>
+            <td><form action="/admin/hapus/<%= item.id_film %>" method="post">
+              <button type="submit">Hapus</button>
+            </form></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <div class="tentang-kami">
+      <h1>Pengelolaan Tentang Kami</h1>
+      <!-- <form action="/tentang_kami" method="post">
+        <label for="deskripsi_singkat">Deskripsi Singkat:</label>
+        <textarea name="deskripsi_singkat" id="deskripsi_singkat"></textarea>
+        <label for="sejarah">Sejarah:</label>
+        <textarea name="sejarah" id="sejarah"></textarea>
+        <label for="visi">Visi:</label>
+        <textarea name="visi" id="visi"></textarea>
+        <button type="submit">Simpan</button>
+      </form> -->
+      <form action="/edit/tentang_kami/<%= tentangKami ? tentangKami.id_tentang : '' %>" method="post">
+        <label for="deskripsi_singkat">Deskripsi Singkat:</label>
+        <textarea name="deskripsi_singkat" id="deskripsi_singkat"><%= tentangKami ? tentangKami.deskripsi_singkat : ''%></textarea>
+        <label for="sejarah">Sejarah:</label>
+        <textarea name="sejarah" id="sejarah" ><%= tentangKami ? tentangKami.sejarah : ''%></textarea>
+        <label for="visi">Visi:</label>
+        <textarea name="visi" id="visi" ><%= tentangKami ? tentangKami.visi : ''%></textarea>
+        <button type="submit">Edit</button>
+      </form>
+      <hr>
+      <form action="/misi" method="post">
+        <label for="misi">Misi:</label>
+        <input type="text" name="misinya" id="misinya" required autocomplete="off">
+        <button type="submit">Simpan</button>
+      </form>
+      <form action="/edit/misi/<%= misi.id_misi %>" method="post">
+        <% misi.forEach(list => { %> 
+        <label for="misi">Edit Misi:</label>
+        <input type="text" name="misinya" id="misinya" value="<%= list.misinya %>" autocomplete="off">
+        <button type="submit">Edit</button>
+        <a href="/hapus_misi/<%= list.id_misi %>">Hapus Misi</a><br><br>
+        <% }) %>
+      </form>
+      <hr>
+      <form action="/tim_kami" method="post" enctype="multipart/form-data">
+        <label for="gambar_tim">Foto Profil:</label>
+        <input type="file" name="gambar_tim" id="gambar_tim"><br><br>
+        <label for="nama_tim">Nama Lengkap:</label>
+        <input type="text" name="nama_tim" id="nama_tim" autocomplete="off">
+        <label for="posisi">Posisi:</label>
+        <input type="text" name="posisi" id="posisi" autocomplete="off">
+        <label for="desk_tim">Bio:</label>
+        <input type="text" name="desk_tim" id="desk_tim" autocomplete="off">
+        <button type="submit">Simpan</button>
+      </form>
+      <% tim.forEach(list => { %> 
+      <form action="/edit_tim/<%= list.id_tim %>" method="post" enctype="multipart/form-data">
+        <label for="gambar_tim">Foto Profil:</label>
+        <input type="file" name="gambar_tim" id="gambar_tim"><br><br>
+        <label for="nama_tim">Nama Lengkap:</label>
+        <input type="text" name="nama_tim" id="nama_tim" value="<%= list.nama_tim %>" autocomplete="off">
+        <label for="posisi">Posisi:</label>
+        <input type="text" name="posisi" id="posisi" value="<%= list.posisi %>" autocomplete="off" >
+        <label for="desk_tim">Bio:</label>
+        <input type="text" name="desk_tim" id="desk_tim" value="<%= list.desk_tim %>" autocomplete="off">
+        <button type="submit">Edit</button>
+        <a href="/hapus_tim/<%= list.id_tim %>">Hapus Anggota</a>
+      </form>
+      <% }) %>
+    </div>
+  </div>
+  </body>
+</html>

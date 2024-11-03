@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/tentang.css" />
+  </head>
+  <body>
+    <!-- Navigasi -->
+<nav class="menu-utama">
+    <ul>
+      <img class="gambar-logo" src="img/2-1.png" alt="logo" width="100px" />
+      <h1 class="suaka">SUAKA</h1>
+      <li><a href="/index">Home</a></li>
+      <li>
+        <a href="">Kisah</a>
+        <ul class="sub-menu">
+          <li><a href="/cerpen_user">Cerita Pendek</a></li>
+          <li><a href="/film">Film Pendek</a></li>
+        </ul>
+      </li>
+      <li><a href="/curhat_user">Curhat</a></li>
+      <li class="right">
+        <a href="/profile_user"><%= user.username %></a>
+        <ul class="sub-menu-right">
+          <li><a href="/profile_user">Profil</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+    <div class="bg-header">
+      <h1>Tentang Kami</h1>
+    </div>
+
+      <section id="deskripsi">
+        <h2>Deskripsi Singkat</h2>
+        <p>
+            <%= tentangKami ? tentangKami.deskripsi_singkat : ''%>
+        </p>
+      </section>
+
+      <section id="visi-misi">
+        <h2>Visi & Misi</h2>
+        <p>
+          <strong>Visi:</strong> <%= tentangKami ? tentangKami.visi : ''%>
+        </p>
+        <p><strong>Misi:</strong></p>
+        <ul>
+            <% misi.forEach(list => {  %> 
+          <li>
+            <p align="middle">
+            <%= list.misinya %>
+        </p>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+
+      <section id="sejarah">
+        <h2>Sejarah Kami</h2>
+        <p>
+            <%= tentangKami ? tentangKami.sejarah : ''%>
+        </p>
+      </section>
+
+      <section id="tim">
+        <h2>Tim Kami</h2>
+        <% tim.forEach(list => { %> 
+        <div class="team-member">
+          <img src="<%= list.gambar_tim %>" alt="Nama Anggota 1" />
+          <h3><%= list.nama_tim %></h3>
+          <p>Posisi: <%= list.posisi %></p>
+          <p>Bio: <%= list.desk_tim %></p>
+        </div>
+        <% }) %>
+      </section>
+
+      <footer>
+        <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

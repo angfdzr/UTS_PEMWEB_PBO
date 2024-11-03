@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/cerpen.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <div class="bg-header">
+      <h1>Cerita Pendek</h1>
+    </div>
+
+    <div class="container">
+      <img src="<%= berita.gambar_cerpen %>" alt="Gambar Berita" class="news-image">
+      <h1 class="news-title"><%= berita.judul_cerpen %></h1>
+      <div class="news-content">
+        <div style="white-space: pre-wrap;"><%= berita.isi_cerpen %></div>
+      </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+  </footer>
+  </body>
+</html>

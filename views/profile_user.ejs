@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUAKA</title>
+    <link rel="stylesheet" href="/profile_user.css" />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="menu-utama">
+      <ul>
+        <img src="img/2-1.png" alt="logo" width="100px" />
+        <h1 class="suaka">SUAKA</h1>
+        <li><a href="/index">Home</a></li>
+        <li>
+          <a href="">Kisah</a>
+          <ul class="sub-menu">
+            <li><a href="/cerpen_user">Cerita Pendek</a></li>
+            <li><a href="/film">Film Pendek</a></li>
+          </ul>
+        </li>
+        <li><a href="/curhat_user">Curhat</a></li>
+        <li class="right">
+          <a href="/profile_user"><%= user.username %></a>
+          <ul class="sub-menu-right">
+            <li><a href="/profile_user">Profil</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="bg-header">
+      <h1>Halaman Profil</h1>
+    </div>
+
+    <div class="main-profile">
+      <form action="/profile_user/edit/<%= user.id_user %>" method="post">
+        <table border="0" cellspacing="0" cellpadding="20">
+          <tr>
+            <th>Nama Lengkap</th>
+            <td>
+              <input
+                type="text"
+                name="namaLengkap"
+                id="namaLengkap"
+                value="<%= user.namaLengkap %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value="<%= user.email %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Username</th>
+            <td>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value="<%= user.username %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Nomor Telepon</th>
+            <td>
+              <input
+                type="number"
+                name="no_telepon"
+                id="no_telepon"
+                value="<%= user.no_telepon %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Negara</th>
+            <td>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                value="<%= user.country %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Kota</th>
+            <td>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                value="<%= user.city %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Provinsi</th>
+            <td>
+              <input
+                type="text"
+                name="province"
+                id="province"
+                value="<%= user.province %>"
+                autocomplete="off"
+              />
+            </td>
+          </tr>
+        </table>
+        <button type="submit">Edit</button>
+      </form>
+      <br />
+      <form action="/delete/<%= user.id_user %>" method="post">
+        <button type="submit" onsubmit="confirmDelete()">Hapus Akun</button>
+      </form>
+      <hr />
+      <div class="histori-curhat">
+        <h1>Histori Curhat</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Subjek</th>
+              <th>Isi Cerita</th>
+              <th>Hasil Jawaban</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% curhat.forEach(listCurhat => { %>
+                <tr>
+                    <td><%= listCurhat.subjek %></td>
+                    <td><%= listCurhat.pesan_curhat %></td>
+                    <td><%= listCurhat.jawaban_text ? listCurhat.jawaban_text : 'Belum ada jawaban' %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      function confirmDelete() {
+        return confirm("Apakah Anda yakin ingin menghapus akun ini?"); // Dialog konfirmasi
+      }
+    </script>
+    <footer>
+      <p>&copy; 2024 Sarana Aduan Kesehatan Mental Mahasiswa. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

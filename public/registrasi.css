@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrasi-user {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.registrasi-user:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #777;
+    font-weight: 500;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+a {
+    display: block;
+    margin-top: 15px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+@media (max-width: 450px) {
+    .registrasi-user {
+        width: 90%;
+    }
+}

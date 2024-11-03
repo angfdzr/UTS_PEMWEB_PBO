@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi User</title>
+    <link rel="stylesheet" href="/registrasi.css">
+</head>
+<body>
+    <div class="registrasi-user">
+        <h1>Halaman Registrasi</h1>
+        <form action="/registrasi_user" method="post">
+            <label for="namaLengkap">Nama Lengkap:</label>
+            <input type="text" name="namaLengkap" id="namaLengkap" required autocomplete="off">
+
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required autocomplete="off">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required autocomplete="off">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required autocomplete="off">
+
+            <label for="no_telepon">No Telepon:</label>
+            <input type="number" name="no_telepon" id="no_telepon" required autocomplete="off">
+
+            <label for="country">Negara:</label>
+            <input type="text" name="country" id="country" required autocomplete="off">
+
+            <label for="city">Kota:</label>
+            <input type="text" name="city" id="city" required autocomplete="off">
+
+            <label for="province">Provinsi:</label>
+            <input type="text" name="province" id="province" required autocomplete="off">
+
+            <button type="submit">Registrasi</button>
+            <a style="text-align: center;" href="/login_user">Sudah Punya Akun? Login!</a>
+        </form>
+    </div>
+</body>
+</html>
